@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StatusBar, Text, View } from 'react-native';
+import { TouchableOpacity, StatusBar, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SurveyPage from './SurveyPage';
@@ -10,8 +10,10 @@ const Stack = createNativeStackNavigator();
 const HomeScreen = ({ navigation }) => {
  return (
   <View style={styles.container}>
-    <Text>Welcome to the "Wellness in the Wild" App!</Text>
-    <Button title="Go to New Page" onPress={() => navigation.navigate('SurveyPage')} />
+    <Text style={styles.surveyText}>Welcome to the "Wellness in the Wild" App!</Text>
+    <TouchableOpacity style={styles.mainButton} onPress={() => navigation.navigate('SurveyPage')}>
+      <Text style={styles.buttonText}>Survey</Text>
+    </TouchableOpacity>
     <StatusBar style="auto" />
   </View>
  );

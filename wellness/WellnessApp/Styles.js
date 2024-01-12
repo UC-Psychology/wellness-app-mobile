@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
  },
- submitButton: {
+ mainButton: {
     width:300,
     height:60,
     backgroundColor:'#609bc2',

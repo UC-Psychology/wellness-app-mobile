@@ -45,7 +45,7 @@ const SurveyPage = () => {
                     value={inputValue}
                     style={{padding: 10}}
                     />
-                <TouchableOpacity style={styles.submitButton} onPress={() => console.log('Submit Pressed')}>
+                <TouchableOpacity style={styles.mainButton} onPress={() => console.log('Submit Pressed')}>
                     <Text style={styles.buttonText}>Submit</Text>
                 </TouchableOpacity>
             </ScrollView>
