@@ -8,12 +8,21 @@ import { styles } from './Styles';
 const SurveyPage = () => {
     const [inputValue, setInputValue] = useState("");
     const [isDragging, setIsDragging] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
+    const [layout, setLayout] = useState({ x: 0, y: 0, width: 0, height: 0 });
+
+    const onScroll = (event) => {
+      const scrollPosition = event.nativeEvent.contentOffset.y;
+      setScrollY(scrollPosition);
+    };
     return (
         <GestureHandlerRootView style={{flex: 1}}>
             <View style={{flex: 1}}>
                 <ScrollView 
                     contentContainerStyle={{ flexGrow: 1 }}
                     scrollEnabled={!isDragging}
+                    onScroll={onScroll}
+                    scrollEventThrottle={16}
                 >
                     <Text style={styles.surveyText}>How are you feeling?</Text>
                     <View style={styles.buttonContainer}>
@@ -29,7 +38,9 @@ const SurveyPage = () => {
                     </View>
                     <View style={styles.buttonContainer}>
                         <Text style={styles.smallText}>Drag and Drop:</Text>
-                        <Sticker setIsDragging={setIsDragging}/>{}
+                        <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"happySticker"}/>
+                        <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"neutralSticker"}/>
+                        <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"unhappySticker"}/>
                     </View>
                     < BodySilhouette />
                     <Text style={styles.surveyText}>Anything else you'd like us to know?</Text>

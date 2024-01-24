@@ -1,8 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Animated, PanResponder, View, Image } from 'react-native';
 
 
-const Sticker = ({ setIsDragging }) => {
+const Sticker = ({ setIsDragging, scrollY, stickerType }) => {
+    // TODO: make stickers able to be picked back up after dropping
+    // TODO: make stickers render above image
+    var stickerSource = '';
+    switch (stickerType) {
+      case "happySticker":
+        stickerSource = require('./assets/happySticker.png');
+        break;
+      case "neutralSticker":
+        stickerSource = require('./assets/neutralSticker.png');
+        break;
+      case "unhappySticker":
+        stickerSource = require('./assets/unhappySticker.png');
+        break;
+    }
+
+    const scrollYRef = useRef(scrollY);
+    scrollYRef.current = scrollY;
+
     const pan = useRef(new Animated.ValueXY()).current;
   
     const panResponder = useRef(
@@ -22,8 +40,11 @@ const Sticker = ({ setIsDragging }) => {
           { useNativeDriver: false }
         ),
         onPanResponderRelease: (e, gestureState) => {
+            // need to add checks to see if sticker is on image (we can statically pass this from the layout and use math with the scroll view)
             setIsDragging(false); // We're done dragging
-            console.log("Sticker dropped at: ", gestureState.moveX, gestureState.moveY);
+            console.log(stickerType,"dropped at: ", gestureState.moveX, gestureState.moveY);
+            const dropYRelativeToScrollView = gestureState.moveY + scrollYRef.current;
+            console.log('Sticker relative to view:', dropYRelativeToScrollView);
         },
       })
     ).current;
@@ -31,7 +52,7 @@ const Sticker = ({ setIsDragging }) => {
     return (
       <View {...panResponder.panHandlers}>
         <Animated.Image
-          source={require('./assets/happySticker.png')}
+          source={stickerSource}
           style={{
             width: 100,
             height: 100,
