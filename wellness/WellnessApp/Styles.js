@@ -9,38 +9,40 @@ export const styles = StyleSheet.create({
  },
  surveyText: {
    fontSize: 30,
-   alignItems: 'center',
    justifyContent: 'center',
+   padding: 10
  },
  smallText: {
     fontSize: 16,
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 10
   },
  buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    padding: 5,
  },
  unhappyButton: {
-    width: 80,
-    height: 80,
-    borderRadius: 60,
+    width: 70,
+    height: 70,
+    borderRadius: 50,
     backgroundColor: '#385fec',
     alignItems: 'center',
     justifyContent: 'center',
  },
  neutralButton: {
-    width: 80,
-    height: 80,
-    borderRadius: 60,
+    width: 70,
+    height: 70,
+    borderRadius: 50,
     backgroundColor: '#c0bec0',
     alignItems: 'center',
     justifyContent: 'center',
  },
  happyButton: {
-    width: 80,
-    height: 80,
-    borderRadius: 60,
+    width: 70,
+    height: 70,
+    borderRadius: 50,
     backgroundColor: '#7ae7f1',
     alignItems: 'center',
     justifyContent: 'center',
@@ -78,6 +80,7 @@ export const styles = StyleSheet.create({
     borderRadius:50,
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 10
  },
  buttonText: {
     fontSize: 35,
@@ -87,6 +90,18 @@ export const styles = StyleSheet.create({
  miniButtonText: {
     fontSize: 24,
     alignItems: 'center',
+    justifyContent: 'center',
+ },
+ silhouetteContainer: {
+    flex: 1,
+    maxHeight: 400,
+    justifyContent: 'center',
+    alignItems: 'center',
+ },
+ bodySilhouette: {
+    height: 400,
+    aspectRatio: 0.34,
+    alignContent: 'center',
     justifyContent: 'center',
  }
 });
