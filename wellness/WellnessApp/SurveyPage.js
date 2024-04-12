@@ -36,13 +36,14 @@ const SurveyPage = () => {
                         <Text style={styles.buttonText}>:)</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.buttonContainer}>
+                    {/* <View style={styles.buttonContainer}>
                         <Text style={styles.smallText}>Drag and Drop:</Text>
                         <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"happySticker"}/>
                         <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"neutralSticker"}/>
                         <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"unhappySticker"}/>
                     </View>
-                    < BodySilhouette />
+                    < BodySilhouette /> */}
+                    {/* Add a photo input here */}
                     <Text style={styles.surveyText}>Anything else you'd like us to know?</Text>
                     <TextInput
                         editable
@@ -57,6 +58,8 @@ const SurveyPage = () => {
                         style={{padding: 10}}
                         />
                     <TouchableOpacity style={styles.mainButton} onPress={() => console.log('Submit Pressed')}>
+                        {/* TODO: Get geolocation here */}
+                        {/* TODO: Pass survey state into JSON object */}
                         <Text style={styles.buttonText}>Submit</Text>
                     </TouchableOpacity>
                 </ScrollView>

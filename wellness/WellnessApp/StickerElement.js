@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import { Animated, PanResponder, View, Image } from 'react-native';
+import React, { useRef } from 'react';
+import { Animated, PanResponder, View } from 'react-native';
 
 
 const Sticker = ({ setIsDragging, scrollY, stickerType }) => {
