@@ -7,6 +7,20 @@ export const styles = StyleSheet.create({
    alignItems: 'center',
    justifyContent: 'center',
  },
+ input: {
+   width: '80%',
+   margin: 10,
+   padding: 10,
+   borderWidth: 1,
+   borderColor: 'gray',
+   borderRadius: 15
+ },
+ titleText: {
+   fontSize: 30,
+   justifyContent: 'center',
+   alignItems: 'center',
+   padding: 10
+ },
  surveyText: {
    fontSize: 30,
    justifyContent: 'center',

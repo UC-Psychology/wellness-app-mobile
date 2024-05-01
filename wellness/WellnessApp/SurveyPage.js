@@ -55,6 +55,7 @@ const SurveyPage = () => {
                             console.log(inputValue)
                         }}
                         value={inputValue}
+                        placeholder="I feel..."
                         style={{padding: 10}}
                         />
                     <TouchableOpacity style={styles.mainButton} onPress={() => console.log('Submit Pressed')}>
