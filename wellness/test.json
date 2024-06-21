@@ -1,0 +1,16 @@
+{
+    "UserID": 3489753491,
+    "How are you feeling?": "Sad",
+    "Body": {
+      "Head": {
+        "Head": "Neutral"
+      },
+      "Torso": {
+        "Chest": "Sad"
+      }
+    },
+    "Picture": "1010111111001010010101001….0100101010",
+    "Anything else?": "Feeling bad :(",
+    "Geolocation": "-43903, 45091",
+    "Time stamp": 43905340984342342
+  }
