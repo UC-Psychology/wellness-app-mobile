@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Image, ScrollView} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Image, ScrollView, SafeAreaView} from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Sticker from './StickerElement';
 import BodySilhouette from './BodySilhouette';
+import SvgTest from './SvgTest';
 import { styles } from './Styles';
 
 const SurveyPage = () => {
@@ -24,6 +25,7 @@ const SurveyPage = () => {
                     onScroll={onScroll}
                     scrollEventThrottle={16}
                 >
+                    {/* Add some intro text here */}
                     <Text style={styles.surveyText}>How are you feeling?</Text>
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity style={styles.unhappyButton} onPress={() => console.log(':( Pressed')}>
@@ -43,6 +45,10 @@ const SurveyPage = () => {
                         <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"unhappySticker"}/>
                     </View>
                     < BodySilhouette /> */}
+                    <SafeAreaView>
+                        <BodySilhouette />
+                    </SafeAreaView>
+                    
                     {/* Add a photo input here */}
                     <Text style={styles.surveyText}>Anything else you'd like us to know?</Text>
                     <TextInput
@@ -55,6 +61,7 @@ const SurveyPage = () => {
                             console.log(inputValue)
                         }}
                         value={inputValue}
+                        placeholder="I feel..."
                         style={{padding: 10}}
                         />
                     <TouchableOpacity style={styles.mainButton} onPress={() => console.log('Submit Pressed')}>
