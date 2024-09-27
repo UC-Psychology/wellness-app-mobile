@@ -16,6 +16,34 @@ const SurveyPage = () => {
       const scrollPosition = event.nativeEvent.contentOffset.y;
       setScrollY(scrollPosition);
     };
+
+    const onSubmit = () => {
+        console.log("Submit button pressed");
+        getGeolocation();
+    };
+
+    const getGeolocation = () => {
+        console.log("Get geolocation button pressed");
+        if (navigator == undefined) {
+            console.log("Geolocation is not supported on this device: navigator is undefined");
+        } else if (navigator.geolocation == undefined) {
+            console.log("Geolocation is not supported on this device: navigator.geolocation is undefined");
+        } else {
+            console.log("Geolocation is supported on this device");
+        }
+        // if (navigator.geolocation == undefined) {
+        //     console.log("Geolocation is not supported on this device");
+        // } else {
+        //     navigator.geolocation.getCurrentPosition(
+        //         (position) => {
+        //             console.log(position.coords.latitude, position.coords.longitude);
+        //         },
+        //         (error) => {
+        //             console.log(error);
+        //         }
+        //     );
+        // }  
+    };
     return (
         <GestureHandlerRootView style={{flex: 1}}>
             <View style={{flex: 1}}>
@@ -64,7 +92,7 @@ const SurveyPage = () => {
                         placeholder="I feel..."
                         style={{padding: 10}}
                         />
-                    <TouchableOpacity style={styles.mainButton} onPress={() => console.log('Submit Pressed')}>
+                    <TouchableOpacity style={styles.mainButton} onPress={() => onSubmit()}>
                         {/* TODO: Get geolocation here */}
                         {/* TODO: Pass survey state into JSON object */}
                         <Text style={styles.buttonText}>Submit</Text>
