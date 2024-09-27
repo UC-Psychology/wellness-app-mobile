@@ -51,6 +51,7 @@ check back in in 2 weeks
 
 **Philip:**
 Figure out permissions for geolocation
+- look into general build steps, cocoapods, etc.
 Try to get the clickable sillhouette working
 Transition single survey page -> multi page survey
 
