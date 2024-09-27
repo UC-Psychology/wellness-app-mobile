@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Image, ScrollView, SafeAreaView} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ScrollView, SafeAreaView} from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Sticker from './StickerElement';
 import BodySilhouette from './BodySilhouette';
-import SvgTest from './SvgTest';
 import { styles } from './Styles';
 
 const SurveyPage = () => {
@@ -82,7 +80,6 @@ const SurveyPage = () => {
                         style={{padding: 10}}
                         />
                     <TouchableOpacity style={styles.mainButton} onPress={() => onSubmit()}>
-                        {/* TODO: Get geolocation here */}
                         {/* TODO: Pass survey state into JSON object */}
                         <Text style={styles.buttonText}>Submit</Text>
                     </TouchableOpacity>
