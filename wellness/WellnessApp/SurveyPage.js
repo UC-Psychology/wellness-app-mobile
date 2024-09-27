@@ -30,19 +30,15 @@ const SurveyPage = () => {
             console.log("Geolocation is not supported on this device: navigator.geolocation is undefined");
         } else {
             console.log("Geolocation is supported on this device");
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    console.log(position.coords.latitude, position.coords.longitude);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
         }
-        // if (navigator.geolocation == undefined) {
-        //     console.log("Geolocation is not supported on this device");
-        // } else {
-        //     navigator.geolocation.getCurrentPosition(
-        //         (position) => {
-        //             console.log(position.coords.latitude, position.coords.longitude);
-        //         },
-        //         (error) => {
-        //             console.log(error);
-        //         }
-        //     );
-        // }  
     };
     return (
         <GestureHandlerRootView style={{flex: 1}}>
@@ -54,7 +50,7 @@ const SurveyPage = () => {
                     scrollEventThrottle={16}
                 >
                     {/* Add some intro text here */}
-                    <Text style={styles.surveyText}>How are you feeling?</Text>
+                    <Text style={styles.surveyText}>In this moment, how are you feeling overall?</Text>
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity style={styles.unhappyButton} onPress={() => console.log(':( Pressed')}>
                         <Text style={styles.buttonText}>:(</Text>
@@ -66,18 +62,11 @@ const SurveyPage = () => {
                         <Text style={styles.buttonText}>:)</Text>
                         </TouchableOpacity>
                     </View>
-                    {/* <View style={styles.buttonContainer}>
-                        <Text style={styles.smallText}>Drag and Drop:</Text>
-                        <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"happySticker"}/>
-                        <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"neutralSticker"}/>
-                        <Sticker setIsDragging={setIsDragging} scrollY={scrollY} layout={layout} stickerType={"unhappySticker"}/>
-                    </View>
-                    < BodySilhouette /> */}
+                    <Text style={styles.smallText}>Feelings, both mental and physical, can be experienced in different parts ofthe body. Based on the rating you just provided, use the image below to show where you're feeling these sensations.</Text>
                     <SafeAreaView>
                         <BodySilhouette />
                     </SafeAreaView>
                     
-                    {/* Add a photo input here */}
                     <Text style={styles.surveyText}>Anything else you'd like us to know?</Text>
                     <TextInput
                         editable
