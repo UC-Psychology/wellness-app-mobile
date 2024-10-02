@@ -1,35 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Svg, { Path, Rect } from 'react-native-svg';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import TouchableOpacityG from './TouchableOpacityG';
 
 const BodySilhouette = () => {
-  const handleHeadClick = () => {
-    console.log('Head clicked!');
-  };
+  const [selectedArea, setSelectedArea] = useState(null);
+  const [options, setOptions] = useState([]);
 
-  const handleRightArmClick = () => {
-    console.log('Right arm clicked!');
-  };
-
-  const handleLeftArmClick = () => {
-    console.log('Left arm clicked!');
-  };
-
-  const handleTorsoClick = () => {
-    console.log('Torso clicked!');
-  };
-
-  const handleRightLegClick = () => {
-    console.log('Right leg clicked!');
-  };
-
-  const handleLeftLegClick = () => {
-    console.log('Left leg clicked!');
+  const handlePress = (area) => {
+    console.log(area, ' pressed');
+    setSelectedArea(area);
+    switch(area) {
+      case 'head':
+        setOptions(['Head', 'Neck', 'Face']);
+        break;
+      case 'torso':
+        setOptions(['Chest', 'Abdomen', 'Waist']);
+        break;
+      case 'rightArm':
+        setOptions(['Wrist', 'Elbow', 'Shoulder']);
+        break;
+      case 'leftArm':
+        setOptions(['Wrist', 'Elbow', 'Shoulder']);
+        break;
+      case 'rightLeg':
+        setOptions(['Knee', 'Ankle', 'Foot']);
+        break;
+      case 'leftLeg':
+        setOptions(['Knee', 'Ankle', 'Foot']);
+        break;
+      default:
+        setOptions([]);
+    }
   };
 
   return (
-    <View>
+    <View style={{ flexDirection: 'row', padding: 10 }}>
       <Svg
         version="1.1"
         id="svg1"
@@ -43,7 +49,7 @@ const BodySilhouette = () => {
         id="path1" />
         <TouchableOpacityG
             onPress={e => {
-                handleHeadClick();
+                handlePress("head");
             }}>
             <Rect
             id="head"
@@ -56,7 +62,7 @@ const BodySilhouette = () => {
         </TouchableOpacityG>
         <TouchableOpacityG
             onPress={e => {
-                handleRightArmClick();
+                handlePress("rightArm");
             }}>
             <Rect
             id="right_arm"
@@ -69,7 +75,7 @@ const BodySilhouette = () => {
         </TouchableOpacityG>
         <TouchableOpacityG
             onPress={e => {
-                handleLeftArmClick();
+                handlePress("leftArm");
             }}>
             <Rect
             id="left_arm"
@@ -82,7 +88,7 @@ const BodySilhouette = () => {
         </TouchableOpacityG>
         <TouchableOpacityG
             onPress={e => {
-                handleTorsoClick();
+                handlePress("torso");
             }}>
             <Rect
             id="torso"
@@ -95,7 +101,7 @@ const BodySilhouette = () => {
         </TouchableOpacityG>
         <TouchableOpacityG
             onPress={e => {
-                handleRightLegClick();
+                handlePress("rightLeg");
             }}>
             <Rect
             id="right_leg"
@@ -108,7 +114,7 @@ const BodySilhouette = () => {
         </TouchableOpacityG>
         <TouchableOpacityG
             onPress={e => {
-                handleLeftLegClick();
+                handlePress("leftLeg");
             }}>
             <Rect
             id="left_leg"
@@ -119,7 +125,14 @@ const BodySilhouette = () => {
             fill="transparent"
             style="fill:none;stroke-width:0.911393"/>
         </TouchableOpacityG>
-        </Svg>
+      </Svg>
+      <View style={{ marginLeft: 20 }}>
+      {/* figure out right type of component to choose from list, and below that select an option */}
+      <Text>Options:</Text> 
+      {options.map((option, index) => (
+        <Text key={index}>{option}</Text>
+      ))}
+      </View>
     </View>
   );
 };
