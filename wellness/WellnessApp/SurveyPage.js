@@ -60,6 +60,21 @@ const SurveyPage = () => {
                         <Text style={styles.buttonText}>:)</Text>
                         </TouchableOpacity>
                     </View>
+                    <Text style={styles.surveyText}>Optional: Would you like to share more about
+                    your feelings or anything else you're experiencing right now?</Text>
+                    <TextInput
+                        editable
+                        multiline
+                        numberOfLines={4}
+                        maxLength={400}
+                        onChangeText={text => {
+                            setInputValue(text), 
+                            console.log(inputValue)
+                        }}
+                        value={inputValue}
+                        placeholder="I feel..."
+                        style={{padding: 10}}
+                        />
                     <Text style={styles.smallText}>Feelings, both mental and physical, can be experienced in different parts ofthe body. Based on the rating you just provided, use the image below to show where you're feeling these sensations.</Text>
                     <SafeAreaView>
                         <BodySilhouette />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Svg, { Path, Rect } from 'react-native-svg';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import TouchableOpacityG from './TouchableOpacityG';
 
 const BodySilhouette = () => {
@@ -128,7 +128,7 @@ const BodySilhouette = () => {
       </Svg>
       <View style={{ marginLeft: 20 }}>
       {/* figure out right type of component to choose from list, and below that select an option */}
-      <Text>Options:</Text> 
+      <Text>Options: {selectedArea && `(${selectedArea.charAt(0).toUpperCase() + selectedArea.slice(1)})`}</Text>
       {options.map((option, index) => (
         <Text key={index}>{option}</Text>
       ))}
@@ -136,17 +136,5 @@ const BodySilhouette = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-  },
-  touchable: {
-    position: 'absolute',
-    backgroundColor: 'rgba(255, 0, 0, 0.2)', // Add semi-transparent red background for debugging
-  },
-});
 
 export default BodySilhouette;
