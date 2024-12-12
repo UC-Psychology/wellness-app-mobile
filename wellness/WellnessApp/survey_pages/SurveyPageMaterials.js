@@ -4,8 +4,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { styles } from '../Styles';
 
 const SurveyPageMaterials = ({ navigation, route }) => {
-    const [inputValue, setInputValue] = useState("");
     const [isDragging, setIsDragging] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
     
     const surveyData = route.params;
     const [materials, setMaterials] = useState(surveyData.materials || "none");

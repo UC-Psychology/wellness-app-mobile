@@ -6,8 +6,8 @@ import SliderComponent from '../SliderComponent';
 import { styles } from '../Styles';
 
 const SurveyPageActivities = ({ navigation, route }) => {
-    const [inputValue, setInputValue] = useState("");
     const [isDragging, setIsDragging] = useState(false);
+    const [scrollY, setScrollY] = useState(0);
    
     const surveyData = route.params;
     const [activitiesInputValue, setActivitiesInputValue] = useState(surveyData.activitiesInputValue || "");
