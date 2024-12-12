@@ -37,6 +37,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: 5,
  },
+ sliderContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flex: 1, 
+    marginHorizontal: 10,
+ },
  unhappyButton: {
     width: 70,
     height: 70,
